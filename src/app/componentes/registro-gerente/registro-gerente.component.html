@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registro Gerente</title>
+  <link href="https://fonts.googleapis.com/css?family=Arceo:400,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="registro-gerente.component.scss">
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="https://images.pexels.com/photos/5717546/pexels-photo-5717546.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" width="470" height="340" alt="login" class="login-card-img">
+<!--             https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NDN8NDgyNzg1OXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+ -->
+  <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+               <a href="" target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
+            </p>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+              </div>
+              <p class="login-card-description">Registro Gerente</p>
+              <form action="#!">
+                  <div class="form-group">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioHotel.nombre">
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="inputApellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="inputApellido" name="apellid0" #apellido="ngModel" [(ngModel)]="usuarioHotel.apellido">
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="inputUsuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="ngModel" [(ngModel)]="usuarioHotel.usuario">
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" [(ngModel)]="usuarioHotel.email">
+                  </div>
+
+                  <div class="form-group mb-4">
+                     <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="usuarioHotel.password">
+                  </div>
+
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" (click)="registrarGerente()" type="button" value="Registrar Gerente">
+                </form>
+                <nav class="login-card-footer-nav">
+                  <p class="login-card-footer-text">Gerente Ya registrado? <a routerLink="/usuarios" class="text-reset">Ver Gerente registrados</a></p>
+                  <i>Terminos y politicas de privacidad</i>
+                </nav>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body></html>

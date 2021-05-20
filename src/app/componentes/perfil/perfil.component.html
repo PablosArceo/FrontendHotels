@@ -1,0 +1,213 @@
+  <app-navbar></app-navbar>
+
+   <html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perfil</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Arceo:400,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="perfil.component.scss">
+
+</head>
+<body>
+  <br>
+  <br>
+
+  <main
+
+  class="d-flex align-items-center min-vh-80 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="https://images.unsplash.com/photo-1490716792627-4e9601dfc808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" width="470" height="340" alt="login" class="login-card-img">
+
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+               <a  target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
+            </p>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+              </div>
+              <p class="login-card-description">Usuario: {{usuarioModel.usuario}}</p>
+              <p  ></p>
+              <form action="#!">
+
+                <section class="content">
+
+                  <div class="box bg-2">
+                    <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" (click)="obtenerUsuarioId(idUsuario)"
+                    data-bs-toggle="modal" data-bs-target="#modalEditarUsuario"
+                    data-text="Editar"><span>Editar</span>     </button>
+
+
+                    <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"  (click)="obtenerUsuarioId(idUsuario)"
+                    data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario"
+                    data-text="Eliminar"><span>Eliminar</span></button>
+                  </div>
+                </section>
+
+
+            <!--     <button  type="button" class="btn btn-primary" (click)="obtenerUsuarioId(idUsuario)"
+                  data-bs-toggle="modal" data-bs-target="#modalEditarUsuario">Editar</button>
+
+                <button  type="button" class="btn btn-primary" (click)="obtenerUsuarioId(idUsuario)"
+                data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button> -->
+
+                <div class="form-group">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModel.nombre" placeholder="Editar nombre" disabled>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="inputApellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="inputApellido" name="apellid0" #apellido="ngModel" [(ngModel)]="usuarioModel.apellido"placeholder="Editar apellido" disabled>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="inputUsuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="ngModel" [(ngModel)]="usuarioModel.usuario"placeholder="Editar Usuario" disabled>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" [(ngModel)]="usuarioModel.email"placeholder="Editar email" disabled>
+                  </div>
+
+                  <div class="form-group mb-4">
+                     <label for="exampleInputPassword1" class="form-label">Password</label>
+                     <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="usuarioModel.password"placeholder="*********" disabled>
+                  </div>
+
+
+
+
+                 </form>
+                <nav class="login-card-footer-nav">
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body></html> -->
+
+
+
+
+
+
+<!-- Modal Editar Usuario -->
+
+ <div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModel.nombre" placeholder="Editar nombre" >
+          </div>
+          <div class="mb-3">
+            <label for="inputApellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="inputApellido" name="apellid0" #apellido="ngModel" [(ngModel)]="usuarioModel.apellido"placeholder="Editar apellido">
+          </div>
+          <div class="mb-3">
+            <label for="inputUsuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="inputUsuario" name="usuario" #usuario="ngModel" [(ngModel)]="usuarioModel.usuario"placeholder="Editar Usuario">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email </label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" [(ngModel)]="usuarioModel.email"placeholder="Editar email" >
+          </div>
+
+
+        </form>
+      </div>
+
+
+    <!--   <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarUsuario()">Guardar Cambios</button>
+      </div> -->
+
+      <section class="content">
+
+        <div class="box bg-2">
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" (click)="editarUsuario()"
+          data-bs-dismiss="modal" data-text="Guardar Cambios"><span>Guardar Cambios</span></button>
+
+          <button  class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+          data-bs-dismiss="modal" data-text="Cerrar"><span>Cerrar</span></button>
+
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Modal Eliminar Usuario -->
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="modalEliminarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" clas="text-center" id="exampleModalLabel">Eliminar Cuenta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de que desea eliminar el Usuario, {{ usuarioModel.usuario }}?
+      </div>
+
+  <!--     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+        (click)="eliminarUsuario(identidadPerfil._id)">Si, eliminar</button>
+      </div> -->
+
+      <section class="content">
+
+        <div class="box bg-2">
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+          (click)="eliminarUsuario(identidadPerfil._id)"
+          data-text="Eliminar Cuenta"><span>Eliminar Cuenta</span></button>
+
+          <button  class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+          data-bs-dismiss="modal" data-text="Cancelar"><span>Cancelar</span></button>
+
+
+        </div>
+      </section>
+
+
+
+    </div>
+  </div>
+</div>
+

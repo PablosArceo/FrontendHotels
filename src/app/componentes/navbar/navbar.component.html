@@ -1,0 +1,164 @@
+
+<header class="p-3 mb-3 border-bottom">
+  <div class="container-fluid">
+    <a routerLink="/hoteles">
+    </a>
+
+    <div class="d-flex flex-wrap align-items-center justify justify-content-lg-start">
+
+
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+
+
+        <svg class="bi me-2" width="80" height="32" role="img" aria-label="Oreja"><use xlink:href="#bootstrap"></use></svg>
+        <a href="/hoteles">
+          <img src="/favicon.ico" width="90" height="90">
+         </a>
+      </a>
+
+     <br>
+
+     <a class="navbar-brand text-dark" >SkyHotels</a>
+
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Oreja"><use xlink:href="#bootstrap"></use></svg>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+
+        <li><a routerLink="/hoteles" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hoteles</font></font></a></li>
+
+        <a *ngIf="identidadVariable.rol == 'ROL_ADMIN'">
+        <li><a routerLink="/usuarios" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usuarios</font></font></a></li>
+        </a>
+
+        <a *ngIf="identidadVariable.rol =='ROL_ADMIN'">
+          <li><a routerLink="/tipoEventos" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tipo de Eventos</font></font></a></li>
+        </a>
+
+      </ul>
+
+
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+      </form>
+
+      <div class="dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-californication-david-duchovny.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+        </a>
+        <a class="nav-link" *ngIf="_usuarioService.getIdentidad()"> {{ _usuarioService.getIdentidad().usuario }} </a>
+
+
+
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuevo proyecto...</font></font></a></li>
+          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ajustes</font></font></a></li>
+          <li><a class="dropdown-item" routerLink="/perfil"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" (click)="cerrarSesion()" routerLink="/login" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cerrar Sesion</font></font></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+
+
+
+
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SkyHotel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro</a>
+        </li>
+        <a>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/hoteles" routerLinkActive="active">Hoteles</a>
+          </li>
+        </a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
+        </li>
+
+      </ul>
+      <div class="d-flex">
+        <a class="nav-link" *ngIf="_usuarioService.getIdentidad()"> {{ _usuarioService.getIdentidad().usuario }} </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+ -->
+
+
+
+
+
+
+
+<!-- <header>
+  <div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
+          <li>
+            <a routerLink="/hoteles" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+              Hoteles
+            </a>
+          </li>
+          <li>
+            <a routerLink="/usuarios" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+              Usuarios
+            </a>
+          </li>
+          <li>
+            <a routerLink="/registro" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+              Registro
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+              Customers
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="px-3 py-2 border-bottom mb-3">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <div class="text-end">
+        <button type="button" class="btn btn-light text-dark me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+      <div class="d-flex">
+        <a class="nav-link" *ngIf="_usuarioService.getIdentidad()"> {{ _usuarioService.getIdentidad().usuario }} </a>
+      </div>
+    </div>
+  </div>
+</header>
+ -->

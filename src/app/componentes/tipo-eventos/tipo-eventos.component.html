@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="mask d-flex align-items-center h-80">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body p-0">
+
+
+
+              <table class="table table-striped mb-0">
+                <thead style="background-color: #002d72;">
+
+                  <tr>
+                    <th scope="col">id Hotel</th>
+                    <th scope="col">Tipo Evento</th>
+
+                    <th scope="col">administrar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tipoEventos of tipoEventoModelGet">
+                    <th scope="row">{{ tipoEventos._id }}</th>
+                    <td>{{ tipoEventos.nombreTipoEvento }}</td>
+                    <td>
+                  <tr>
+
+                  <tr>
+
+                    <tr>
+                     <!--  <div class="box bg-1">
+                        <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick">
+
+                          Editar</button>
+                        <button *ngIf="identidadH.rol=='ROL_GERENTE'" class="button button--wayra button--border-thick button--text-upper button--size-s">Editar</button> -->
+
+                        <div class="box bg-1">
+                          <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button button--wayra button--border-thick button--text-upper button--size-s"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEditarHotel"
+                          data-text="Editar"><span>Editar</span>     </button>
+
+
+                       <!--  <button type="button" class="btn btn-primary" (click)="obtenerHoteles(hoteles._id)"
+                        data-bs-toggle="modal" data-bs-target="#modalVerHotel">Ver</button> -->
+
+                      </div>
+
+                    </tr>
+
+                <!--     <section class="content">
+
+                      <div class="box bg-1">
+                        <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+                        (click)="obtenerHotelI(idHotelModel)"
+                        data-bs-toggle="modal" data-bs-target="#modalEditarHotel"
+                        data-text="Editar"><span>Editar</span>     </button>
+
+
+                        <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"  (click)="obtenerUsuarioId(idUsuario)"
+                        data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario"
+                        data-text="Eliminar"><span>Eliminar</span></button>
+                      </div>
+                    </section>
+-->
+
+
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

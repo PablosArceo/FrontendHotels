@@ -1,0 +1,63 @@
+
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Arceo:400,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="login.component.scss">
+</head>
+<body>
+
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card" style="margin:0" >
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="https://s3.amazonaws.com/images.vive.travel/photos/15532/xlarge/5099PISC-SONPER0011.jpg?1443908861" width="470" height="340" alt="login" class="login-card-img">
+
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+               <a  target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
+            </p>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+              </div>
+              <p class="login-card-description">Sky Hotels</p>
+              <p class="login-card-description">Ingresa tus credenciales</p>
+              <form action="#!">
+                  <div class="form-group">
+                    <label for="exampleInputUsuario" class="form-label">usuario</label>
+          <input type="usuario" class="form-control" id="exampleInputUsuario" name="usuario" #usuario="ngModel"
+            [(ngModel)]="usuarioModel.usuario" aria-describedby="usuarioHelp">
+          <div id="usuarioHelp" class="form-text">No compartas tus credenciales con nadie.</div>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel"
+                      [(ngModel)]="usuarioModel.password" placeholder="***********">
+                  </div>
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" (click)="login()" type="button" value="Login">
+                </form>
+                <p class="login-card-footer-text">No tienes cuenta.? <a routerLink="/registro" class="text-reset">Registrate aqui</a></p>
+                <nav class="login-card-footer-nav">
+                  <i>Terminos y politicas de privacidad</i>
+
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body></html>
