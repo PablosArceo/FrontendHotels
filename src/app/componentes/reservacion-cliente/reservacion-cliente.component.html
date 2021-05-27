@@ -1,0 +1,204 @@
+<app-navbar></app-navbar>
+
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tus Reservaciones</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="reservacion-cliente.component.scss">
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-200 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="/assets/pass.jpg" width="470" height="340" alt="login" class="login-card-img">
+
+  <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+               <a href="" target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div class="card-body">
+              <div class="brand-wrapper">
+              </div>
+              <p class="login-card-description">Detalle Reservacion</p>
+              <form action="#!">
+                <div class="card">
+
+
+                </div>
+
+
+
+
+
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div   >
+    </div>
+
+
+
+
+
+
+  </main>
+  <br>
+  <br>
+  <br>
+
+<div class="mask d-flex align-items-center h-80">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body p-0">
+
+
+
+              <table class="table table-striped mb-0">
+                <thead style="background-color: #002d72;">
+
+                  <tr>
+                    <th scope="col">id Reservacion</th>
+
+                    <th scope="col">Fecha Llegada</th>
+                    <th scope="col">Fecha Salida</th>
+                    <th  scope="col">Servicios</th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let reservaciones of reservacionModelGet">
+                    <th  scope="row">{{ reservaciones._id }}</th>
+                    <td>{{ reservaciones.fecha_llegada }}</td>
+                    <td>{{ reservaciones.fecha_salida }}</td>
+
+
+                    <td>
+                  <tr>
+                  <tr>
+                    <tr>
+
+<!--                      <select>
+                       <option class="form-select" aria-label="Default select example" *ngFor="let g of r.servicios; let i= index" >{{g.servicios}}    </option>
+                     </select>
+ -->
+                        <div class="box bg-1">
+
+
+
+                          <button  class="button3 button--wayra button--border-thick button--text-upper button--size-s" (click)="hotelServicios(reservaciones.idHabitacion)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalAgregarServicio"
+                          data-text="Eliminar">Agregar Servicio<span></span>     </button>
+
+
+
+                       <!--    <button  class="button3 button--wayra button--border-thick button--text-upper button--size-s"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEliminarEvento"
+                          data-text="Eliminar">Agregar Servicio<span></span>     </button> -->
+
+
+                          <button
+                          routerLink="/facturasCliente"class="button3 button--wayra button--border-thick button--text-upper button--size-s">
+                            <span>Ver Factura</span>
+
+                             </button>
+
+
+                          <button class="button3 button--wayra button--border-thick button--text-upper button--size-s"
+                          (click)="eliminarReservacion(reservaciones._id)" type="submit">Eliminar Reservación</button>
+
+
+
+
+
+                      </div>
+
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body></html>
+
+
+<!-- <div class="modal fade" id="servicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class= "modal-dialog">
+    <div class="#modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Servicios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">  </button>
+        </div>
+        <form>
+          <div class="#modal-body">
+            <select class="form-select"  id="_id"   name="_id" #_id="ngModel" [(ngModel)]="serviciosModelGet.nombreServicio">
+              <option value=""></option>
+
+            </select>
+          </div>
+        </form>
+
+
+
+    </div>
+
+  <div>
+</div>
+ -->
+
+
+  <!-- Modal Agregar servicio-->
+
+      <div class="modal fade" id="modalAgregarServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Servicio</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class= "modal-body">
+                <select class="form-select" id="_id" name="_id" #_id="ngModel" [(ngModel)]="actualizarServicio._id">
+                  <option value=""></option>
+                  <option *ngFor="let servicios of serviciosModelGet" value="{{servicios._id}}">{{servicios.nombreServicio}}</option>
+                </select>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="servicioPorReservacion()">Save changes</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+

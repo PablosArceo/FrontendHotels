@@ -65,6 +65,8 @@ export class PerfilComponent implements OnInit {
     this._usuarioService.editarUsuario(this.usuarioModel).subscribe(
     response => {
       console.log(response);
+      this.obtenerUsuarioId(this.idUsuario);
+
       Swal.fire({
         icon: 'success',
         title: 'Usuario actualizado'

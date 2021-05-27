@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+
+<div class="mask d-flex align-items-center h-80">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body p-0">
+
+
+
+              <table class="table table-striped mb-0">
+                <thead style="background-color: #002d72;">
+
+                  <tr>
+                    <th scope="col">id Reservacion</th>
+                    <th scope="col">id Usuario</th>
+                    <th scope="col">id Habitacion</th>
+                    <th scope="col">estado</th>
+                    <th  scope="col">Fecha llegada</th>
+                    <th  scope="col">Fecha Salida</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let reservaciones of reservacionModelGet">
+                    <th  scope="row">{{ reservaciones._id }}</th>
+                    <td>{{ reservaciones.idUsuario.usuario }}</td>
+                    <td>{{ reservaciones.idHabitacion }}</td>
+                    <td>{{ reservaciones.estado }}</td>
+                    <td>{{ reservaciones.fecha_llegada }}</td>
+                    <td>{{ reservaciones.fecha_salida }}</td>
+
+                    <td>
+                  <tr>
+                  <tr>
+                    <tr>
+
+
+
+                        <!--   <button  class="button bi bi-eye-fill button--size-s" (click)="obtenerEventosID(eventos._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalVerEvento"
+                          data-text="Ver"><span></span>     </button>
+ -->
+
+
+
+
+
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

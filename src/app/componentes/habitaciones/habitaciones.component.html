@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+
+<div class="mask d-flex align-items-center h-80">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body p-0">
+
+
+
+
+
+              <table class="table table-striped mb-0">
+                <thead style="background-color: #002d72;">
+
+
+                  <tr>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="col">id Habitacion</th>
+                    <th scope="col">Habitacion</th>
+                    <th scope="col">Precio</th>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="col">id Hotel</th>
+                    <th *ngIf="identidadE.rol=='ROL_CLIENTE'"  scope="col">Reservar</th>
+                    <th *ngIf="identidadE.rol=='ROL_GERENTE'"  scope="col">Reservarciones</th>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'"  scope="col">Ver</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let habitaciones of habitacionModelGet">
+
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="row">{{ habitaciones._id }}</th>
+
+                    <td>{{ habitaciones.nombreHabitacion }}</td>
+                    <td>{{ habitaciones.precio }}</td>
+                    <td *ngIf="identidadE.rol=='ROL_ADMIN'" >{{ habitaciones.idHotel }}</td>
+                    <td>
+                  <tr>
+                  <tr>
+                    <tr>
+                      <div  class="box bg-1">
+                        <button *ngIf="identidadE.rol=='ROL_CLIENTE'"
+                        [routerLink]="['/addReservacion/',habitaciones._id]"  class="button7 button--wayra button--border-thick button--text-upper1 button--size-s">
+                        <span>Reservar</span>
+                        </button>
+
+                        <button *ngIf="identidadE.rol=='ROL_GERENTE'"
+                        [routerLink]="['/reservaciones/',habitaciones._id]" class="button7 button--wayra button--border-thick button--text-upper1 button--size-s">
+                        <span>Ver Reservaciones</span>
+                        </button>
+
+                        <button  class="button3 bi bi-eye-fill button--size-s" (click)="obtenerHabitacionID(habitaciones._id)"
+
+                        data-bs-toggle="modal" data-bs-target="#modalVerEvento"
+                        data-text="Ver"><span></span>     </button>
+
+
+                        </div>
+
+                        <div  class="box bg-1">
+
+
+
+ </div>
+
+                    <!--     <div class="box bg-1">
+                          <button *ngIf="identidadE.rol=='ROL_ADMIN'" class="button bi bi-pencil-square button--size-s " (click)="obtenerEventosID(eventos._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEditarEvento"
+                          data-text="Editar"><span></span>     </button>
+
+                          <button *ngIf="identidadE.rol=='ROL_ADMIN'" class="button bi bi-trash button--size-s" (click)="obtenerEventosID(eventos._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEliminarEvento"
+                          data-text="Eliminar"><span></span>     </button>
+
+
+                          <button  class="button bi bi-eye-fill button--size-s" (click)="obtenerEventosID(eventos._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalVerEvento"
+                          data-text="Ver"><span></span>     </button>
+
+
+
+
+                      </div>
+
+ -->
+
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+   <!-- Modal Ver Habitacion -->
+
+   <div class="modal fade" id="modalVerEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ver Habitacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="inputNombre" class="form-label">Nombre Habitacion</label>
+              <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="habitacionModel.nombreHabitacion"    disabled>
+            </div>
+
+            <div class="mb-3">
+              <label for="inputCapacidad" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="inputCapacidad" name="capacidad" #capacidad="ngModel" [(ngModel)]="habitacionModel.precio"    disabled>
+            </div>
+
+
+            <div class="mb-3"  *ngIf="identidadE.rol=='ROL_ADMIN'">
+              <label for="inputFecha" class="form-label">id Hotel</label>
+             <input  class="form-control" id="inputFecha" name="fecha" #fecha="ngModel" [(ngModel)]="habitacionModel.idHotel" disabled >
+
+            </div>
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

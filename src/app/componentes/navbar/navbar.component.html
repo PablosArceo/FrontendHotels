@@ -31,29 +31,46 @@
         <li><a routerLink="/usuarios" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usuarios</font></font></a></li>
         </a>
 
-        <a *ngIf="identidadVariable.rol =='ROL_ADMIN'">
-          <li><a routerLink="/tipoEventos" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tipo de Eventos</font></font></a></li>
-        </a>
+        <a *ngIf="identidadVariable.rol == 'ROL_CLIENTE'">
+          <li><a routerLink="/reservaciones-cliente" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tus Reservaciones</font></font></a></li>
+          </a>
+
+
+      <li><a *ngIf="identidadVariable.rol == 'ROL_ADMIN'" routerLink="/tipoEventos" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Tipo de Eventos</font></font></a></li>
+
+
+
+<!--           <li><a routerLink="/eventos/:idHotel" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Eventos</font></font></a></li>
+ -->
+
+
+<!--            <li><a routerLink="/servicios/:idHotel" class="nav-link px-4 link-dark"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Servicios</font></font></a></li>
+ -->
+
 
       </ul>
 
 
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+<!--         [(ngModel)]="hotelModel.nombreHotel"
+ -->        <input   class="form-control" placeholder="Buscar..." aria-label="Buscar">
       </form>
 
       <div class="dropdown text-end">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-californication-david-duchovny.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+          <img   *ngIf="identidadVariable.rol=='ROL_ADMIN'"   src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-californication-david-duchovny.jpg" alt="mdo" width="40" height="40" class="rounded-circle">
+          <img   *ngIf="identidadVariable.rol=='ROL_CLIENTE'" src="/assets/c.png" alt="mdo" width="40" height="40" class="rounded-circle">
+          <img   *ngIf="identidadVariable.rol=='ROL_GERENTE'" src="/assets/gerente.png" alt="mdo" width="40" height="40" class="rounded-circle">
+
+
         </a>
         <a class="nav-link" *ngIf="_usuarioService.getIdentidad()"> {{ _usuarioService.getIdentidad().usuario }} </a>
 
 
 
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuevo proyecto...</font></font></a></li>
-          <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ajustes</font></font></a></li>
+
           <li><a class="dropdown-item" routerLink="/perfil"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" (click)="cerrarSesion()" routerLink="/login" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cerrar Sesion</font></font></a></li>

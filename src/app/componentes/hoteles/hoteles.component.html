@@ -1,128 +1,211 @@
  <app-navbar></app-navbar>
 
 
-      <html lang="en"><head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <html lang="en"><head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Hoteles</title>
+   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="hoteles.component.scss">
+ </head>
+ <body>
+   <br>
+   <main class="d-flex align-items-center min-vh-200 py-3 py-md-0">
+     <div class="container">
+       <div class="card login-card">
+         <div class="row no-gutters">
+           <div class="col-md-5">
+             <img src="/assets/mansion.jpg" width="470" height="340" alt="login" class="login-card-img">
+   <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+             </p>
+           </div>
+           <div class="col-md-4">
+             <div class="card-body">
+               <div class="brand-wrapper">
+               </div>
+               <p class="login-card-description">Sky Hotels</p>
+               <form action="#!">
+                 <div class="card">
+                 </div>
+                 </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <br>
 
-        <title>Hoteles</title>
-      </head>
-
-      <body>
-
-
-        <div class="mask d-flex align-items-center h-80">
-
-
-
-
-
-
-
-
-
-          <div class="container-fluid">
-
-            <div class="row justify-content-center">
-              <div class="col-12">
-                <br>
-                <br>
-
-                <button
-                *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/nuevoHotel"class="button button--wayra button--border-thick button--text-upper button--size-s">
-                <span>Agregar Hotel</span>
-
-                </button>
-
-                <button
-                *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/registroGerente"class="button button--wayra button--border-thick button--text-upper button--size-s">
-                <span>Agregar Gerente</span>
-
-                </button>
-
-                <button
-                *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/addTipoEventos"class="button button--wayra button--border-thick button--text-upper button--size-s">
-                <span>A.Tipo Eventos</span>
-
-                </button>
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+     <div   >
+   </div>
 
 
-                <div class="card">
+   </main>
+   <br>
+   <br>
+   <br>
+
+            <div class="mask d-flex align-items-center h-80">
+
+              <div class="container-fluid">
+
+                <div class="row justify-content-center">
+                  <div class="col-12">
+                    <button
+                    *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink=""class="button button--wayra button--border-thick button--text-upper1 button--size-s">
+                    <span>Graficas Hotel</span>
+
+                    </button>
+                    <button
+                    *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/nuevoHotel"class="button button--wayra button--border-thick button--text-upper1 button--size-s">
+                    <span>Agregar Hotel</span>
+
+                    </button>
+
+                    <button
+                    *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/registroGerente"class="button button--wayra button--border-thick button--text-upper1 button--size-s">
+                    <span>Agregar Gerente</span>
+
+                    </button>
+
+                    <button
+                    *ngIf="identidadH.rol == 'ROL_ADMIN'"routerLink="/addTipoEventos"class="button button--wayra button--border-thick button--text-upper1 button--size-s">
+                    <span>A.Tipo Eventos</span>
+
+                    </button>
 
 
-                  <div class="card-body p-0">
-                    <div class="box bg-1">
 
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <div class="card">
+
+
+                      <div class="card-body p-0">
+                        <div class="box bg-1">
+
+                          </div>
+
+                          <table class="table table-striped mb-0">
+                            <thead style="background-color: #002d72;  ">
+
+                              <tr>
+                                <th *ngIf="identidadH.rol=='ROL_ADMIN'" scope="col" >id Hotel</th>
+                                <th scope="col">Nombre del hotel</th>
+                                <th scope="col">Direccion, pais y ciudad</th>
+                                <th *ngIf="identidadH.rol=='ROL_ADMIN'" scope="col">id Gerente</th>
+                                <th *ngIf="identidadH.rol=='ROL_ADMIN'" scope="col">Administrar</th>
+
+                                <th *ngIf="identidadH.rol=='ROL_CLIENTE'" scope="col">Amenidades</th>
+                                <th *ngIf="identidadH.rol=='ROL_GERENTE'" scope="col">Amenidades</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let hoteles of hoteles">
+                                <th  *ngIf="identidadH.rol=='ROL_ADMIN'" scope="row">{{ hoteles._id }}</th>
+                                <td>{{ hoteles.nombreHotel }}</td>
+                                <td>{{ hoteles.direccion }}</td>
+                                <td *ngIf="identidadH.rol=='ROL_ADMIN'" >{{ hoteles.idGerente }}</td>
+                                <td>
+                              <tr>
+
+                              <tr>
+
+                                <tr>
+
+                                    <div class="box bg-1">
+
+                                      <!-- CRUD ADMIN HOTELES-->
+                                      <button *ngIf="identidadH.rol=='ROL_ADMIN'" class=" button1 bi bi-pencil-square button--size-s " (click)="obtenerHotelID(hoteles._id)"
+
+                                      data-bs-toggle="modal" data-bs-target="#modalEditarHotel"
+                                      data-text="Editar"><span></span>      </button>
+
+                                      <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button1 bi bi-trash button--size-s"(click)="obtenerHotelID(hoteles._id)"
+                                      data-bs-toggle="modal" data-bs-target="#modalEliminarHotel"
+                                      data-text="B"><span></span>  </button>
+
+
+                                      <button class="button1 bi bi-eye-fill button--size-s"(click)="obtenerHotelID(hoteles._id)"
+                                      data-bs-toggle="modal" data-bs-target="#modalVerHotel"
+                                      data-text=""><span></span>  </button>
+
+
+                                      <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button5 button--wayra button--border-thick button--text-upper button--size-s "(click)="obtenerHotelID(hoteles._id)"
+                                      [routerLink]="['/addEventos',hoteles._id]"
+                                      data-text="Agregar"><span></span>+ Evento</button>
+
+                                      <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button5 button--wayra button--border-thick button--text-upper button--size-s"(click)="obtenerHotelID(hoteles._id)"
+                                      [routerLink]="['/Addservicios',hoteles._id]"
+                                      data-text="Agregar"><span> + Servicio </span>  </button>
+
+                                      <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button5 button--wayra button--border-thick button--text-upper button--size-sA" [routerLink]="['/addHabitacion',hoteles._id]">+Habitacion</button>
+
+
+
+
+                                      <!-- CRUD GERENTE POR HOTEL-->
+                                      <button *ngIf="identidadH.rol=='ROL_GERENTE'" class="button1 bi bi-pencil-square button--size-s"(click)="obtenerHotelID(hoteles._id)"
+
+                                      data-bs-toggle="modal" data-bs-target="#modalEditarHotelGerente"
+                                      data-text="Editar"><span></span>     </button>
+
+
+                                      <button *ngIf="identidadH.rol=='ROL_GERENTE'" class="button1 bi bi-trash button--size-s"(click)="obtenerHotelID(hoteles._id)"
+                                      data-bs-toggle="modal" data-bs-target="#modalEliminarHotelGerente"
+                                      data-text="B"><span></span>  </button>
+
+
+
+
+
+                                    <!-- GENERAL ALL USUARIOS-->
+
+                                    <button class="button3 button--wayra button--border-thick button--text-upper button--size-s" [routerLink]="['/eventos',hoteles._id]">Eventos</button>
+                                    <button class="button3 button--wayra button--border-thick button--text-upper button--size-s" [routerLink]="['/servicios',hoteles._id]">Servicios</button>
+
+                                    <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button4 button--wayra button--border-thick button--text-upper button--size-sA" [routerLink]="['/habitaciones',hoteles._id]">Hab.</button>
+                                    <button *ngIf="identidadH.rol=='ROL_CLIENTE'" class="button55 button--wayra button--border-thick button--text-upper button--size-sA" [routerLink]="['/habitaciones',hoteles._id]">Habitaciones.</button>
+                                    <button *ngIf="identidadH.rol=='ROL_GERENTE'" class="button55 button--wayra button--border-thick button--text-upper button--size-sA" [routerLink]="['/habitaciones',hoteles._id]">Habitaciones.</button>
+
+
+
+                                  </div>
+
+                                </tr>
+                            </tbody>
+                          </table>
                       </div>
-
-                      <table class="table table-striped mb-0">
-                        <thead style="background-color: #002d72;">
-                          <tr>
-                            <th scope="col" >id Hotel</th>
-                            <th scope="col">Nombre del hotel</th>
-                            <th scope="col">Direccion, pais y ciudad</th>
-                            <th scope="col">id Gerente</th>
-                            <th scope="col">Amenidades</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let hoteles of hoteles">
-                            <th scope="row">{{ hoteles._id }}</th>
-                            <td>{{ hoteles.nombreHotel }}</td>
-                            <td>{{ hoteles.direccion }}</td>
-                            <td>{{ hoteles.idGerente }}</td>
-                            <td>
-                          <tr>
-
-                          <tr>
-
-                            <tr>
-
-                                <div class="box bg-1">
-                                  <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button button--wayra button--border-thick button--text-upper button--size-s"(click)="obtenerHotelID(hoteles._id)"
-
-                                  data-bs-toggle="modal" data-bs-target="#modalEditarHotel"
-                                  data-text="Editar"><span>Editar</span>     </button>
-
-
-
-                                  <button *ngIf="identidadH.rol=='ROL_ADMIN'" class="button button--wayra button--border-thick button--text-upper button--size-s"(click)="obtenerHotelID(hoteles._id)"
-                                  data-bs-toggle="modal" data-bs-target="#modalEliminarHotel"
-                                  data-text="Eliminar"><span>Eliminar</span>  </button>
-
-
-
-
-                                <button class="button button--wayra button--border-thick button--text-upper button--size-s">Servicios</button>
-                                <button class="button button--wayra button--border-thick button--text-upper button--size-s">Eventos</button>
-                                <button class="button button--wayra button--border-thick button--text-upper button--size-s">Habitaciones</button>
-
-                                <button class="button button--wayra button--border-thick button--text-upper button--size-s"(click)="obtenerHotelID(hoteles._id)"
-                                data-bs-toggle="modal" data-bs-target="#modalVerHotel"
-                                data-text="Eliminar"><span>Ver</span>  </button>
-
-                              </div>
-
-                            </tr>
-                        </tbody>
-                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+ </body></html>
 
 
 
-    <!-- Modal Editar  -->
+
+
+
+
+
+
+    <!-- Modal Editar Hotel ADMIN -->
 
      <div class="modal fade" id="modalEditarHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -160,7 +243,7 @@
 
 
 
-<!-- Modal Eliminar  -->
+<!-- Modal Eliminar Hotel ADMIN -->
 <div class="modal fade" id="modalEliminarHotel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -179,6 +262,64 @@
     </div>
   </div>
 </div>
+
+
+
+
+    <!-- Modal Editar Hotel GERENTE -->
+
+    <div class="modal fade" id="modalEditarHotelGerente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Hotel</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label">Nombre Hotel</label>
+                <input type="text" class="form-control" id="inputNombre" name="nombre" #nombreHotel="ngModel" [(ngModel)]="hotelModel.nombreHotel" placeholder="Editar nombre" >
+              </div>
+              <div class="mb-3">
+                <label for="inputDireccion" class="form-label">Direccion</label>
+                <input type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel" [(ngModel)]="hotelModel.direccion"placeholder="Editar direccion, pais y ciudad">
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarHotelGerente()">Save changes</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Eliminar HOTEL GERENTE -->
+<div class="modal fade" id="modalEliminarHotelGerente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Hotel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de que desea eliminar el hotel, {{ hotelModel.nombreHotel }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+        (click)="eliminarHotelGerente(hotelModel._id)">Si, eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
           <!-- Modal Ver Hotel -->
@@ -202,6 +343,15 @@
                       <input type="text" class="form-control" id="inputUsuario"
                       name="usuario" #usuario="ngModel" [(ngModel)]="hotelModel.direccion" disabled>
                     </div>
+
+                    <div class="mb-3"*ngIf="identidadH.rol=='ROL_ADMIN'">
+                      <label for="input" class="form-label">id Gerente</label>
+                      <input type="text" class="form-control" id="input"
+                      name="input" #nombre="ngModel" [(ngModel)]="hotelModel.idGerente" disabled>
+                    </div>
+
+
+
 
                   </form>
                 </div>

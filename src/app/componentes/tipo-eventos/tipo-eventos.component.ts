@@ -37,9 +37,64 @@ export class TipoEventosComponent implements OnInit {
       },
       error => {
         console.log(<any>error);
+
       }
     )
   }
+
+  obtenerTipoEventoID(idTipoEvento){
+    this._tipoEventoService.obtenerTipoEventoID(this.token, idTipoEvento).subscribe(
+      response=>{
+        this.tipoEventoModel = response.tiposEventoEncontrados;
+
+        console.log(response);
+        this.obtenerTipoEvento();
+
+
+      }
+    )
+  }
+
+  editarTipoEvento(){
+    this._tipoEventoService.editarTipoEvento(this.tipoEventoModel).subscribe(
+      response => {
+        console.log(response);
+        this.obtenerTipoEvento();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Tipo Evento actualizado'
+
+        })
+      },
+       error =>{
+         console.log(<any>error);
+       }
+
+    )
+  }
+
+  eliminarTipoEventoEvento(idTipoEvento){
+    this._tipoEventoService.eliminarTipoEventoEvento(idTipoEvento).subscribe(
+      response => {
+        console.log(response)
+        this.obtenerTipoEvento();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Tipo Evento Eliminado'
+
+
+        })
+      },
+       error =>{
+         console.log(<any>error);
+       }
+
+    )
+  }
+
+
   getIdentidad(){
 
     var identidadHo = JSON.parse(localStorage.getItem('identidad'));

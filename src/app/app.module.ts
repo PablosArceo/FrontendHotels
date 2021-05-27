@@ -18,6 +18,18 @@ import { AddTipoEventoComponent } from './componentes/add-tipo-evento/add-tipo-e
 import { TipoEventosComponent } from './componentes/tipo-eventos/tipo-eventos.component';
 import { RegistroGerenteComponent } from './componentes/registro-gerente/registro-gerente.component';
 import { AddEventosComponent } from './componentes/add-eventos/add-eventos.component';
+import { EventosComponent } from './componentes/eventos/eventos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { AddServiciosComponent } from './componentes/add-servicios/add-servicios.component';
+import { ServiciosAllComponent } from './componentes/servicios-all/servicios-all.component';
+import { HabitacionesComponent } from './componentes/habitaciones/habitaciones.component';
+import { AddHabitacionComponent } from './componentes/add-habitacion/add-habitacion.component';
+import { AddReservacionComponent } from './componentes/add-reservacion/add-reservacion.component';
+import { ReservacionClienteComponent } from './componentes/reservacion-cliente/reservacion-cliente.component';
+import { ReservacionesComponent } from './componentes/reservaciones/reservaciones.component';
+import { FacturasComponent } from './componentes/facturas/facturas.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +45,15 @@ import { AddEventosComponent } from './componentes/add-eventos/add-eventos.compo
     TipoEventosComponent,
     RegistroGerenteComponent,
     AddEventosComponent,
+    EventosComponent,
+    AddServiciosComponent,
+    ServiciosAllComponent,
+    HabitacionesComponent,
+    AddHabitacionComponent,
+    AddReservacionComponent,
+    ReservacionClienteComponent,
+    ReservacionesComponent,
+    FacturasComponent,
 
   ],
   imports: [
@@ -40,7 +61,10 @@ import { AddEventosComponent } from './componentes/add-eventos/add-eventos.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

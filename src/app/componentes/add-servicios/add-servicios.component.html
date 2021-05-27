@@ -1,0 +1,80 @@
+
+<app-navbar></app-navbar>
+
+
+<html lang="en"><head>
+
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agregar Servicio</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="add-servicios.component.scss">
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <main class="d-flex align-items-center min-vh-80 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="/assets/servicios.jpg" width="470" height="340" alt="login" class="login-card-img">
+
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
+               <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
+            </p>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+              </div>
+              <p class="login-card-description">Agregar Servicio</p>
+              <form action="#!">
+                  <div class="form-group">
+                    <label for="nombreServicio" class="sr-only">Nombre del Servicio</label>
+                    <input type="text" name="nombreServicio" id="nombreServicio" class="form-control"  name="nombreServicio" #nombreServicio="ngModel" [(ngModel)]="serviciosModel.nombreServicio" placeholder="nombre servicio" required="">
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label for="precio" class="sr-only">precio</label>
+                    <input type="text" name="precio" id="precio" class="form-control"  name="precio" #precio="ngModel" [(ngModel)]="serviciosModel.precio" placeholder="precio" required="">
+                  </div>
+
+                 <!--  <div class="form-group mb-4">
+                    <label for="direccion" class="sr-only">id Hotel</label>
+                    <input type="text" name="id Hotel" id="id Hotel" class="form-control"  name="id Hotel" #id Hotel="ngModel" [(ngModel)]="serviciosModel.idHotel" placeholder="Id Hotel" required="">
+                  </div> -->
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" (click)="crearServicio()" type="button" value="Registrar Servicio">
+                </form>
+                <nav class="login-card-footer-nav">
+                  <i>Terminos y politicas de privacidad</i>
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body></html>
+
+
+
+
+
+
+

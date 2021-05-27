@@ -35,6 +35,28 @@ export class TipoEventoService {
 
   }
 
+  obtenerTipoEventoID(token,id:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization',token)
+
+    return this._http.get(this.url + '/obtenerTipoEventoID/'+ id, {headers: headersToken})
+  }
+
+  editarTipoEvento(tipoEvento: TipoEvento):Observable<any>{
+    let params = JSON.stringify(tipoEvento);
+    let headersToken = this.headersVariable.set('Authorization', this.getToken())
+
+    return this._http.put(this.url + '/editarTipoEvento/' + tipoEvento._id, params, {headers: headersToken})
+  }
+
+  eliminarTipoEventoEvento(id:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', this.getToken());
+
+    return this._http.delete(this.url + '/eliminarTipoEvento/' + id, {headers: headersToken})
+  }
+
+
+
+
   getToken(){
     var token2 = localStorage.getItem('token');
     if(token2 != 'undefined'){

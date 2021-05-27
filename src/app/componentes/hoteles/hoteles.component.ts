@@ -40,8 +40,9 @@ export class HotelesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.obtenerHoteles();
     this.getIdentidad();
+    this.obtenerHoteles();
+
 
   }
 
@@ -62,13 +63,34 @@ export class HotelesComponent implements OnInit {
     this._hotelesService.obtenerHoteles(this.token).subscribe(
       response => {
         this.hoteles = response.hotelesEncontrados
+
       },
       error =>{
         console.log(<any>error);
+        this.obtenerHoteles();
+
 
       }
     )
   }
+
+ /*  obtenerHoteles(){
+    this._hotelesService.obtenerHoteles(this.token).subscribe(
+      response => {
+        this.hoteles = response.hotelesEncontrados
+      },
+      error =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El id del tipo evento o el id de hotel son incorrectos',
+        })
+        console.log(<any>error)
+        this.obtenerHoteles();
+
+      }
+    )
+  } */
 
   obtenerHotelID(idHotel){
     this._hotelesService.obtenerHotelID(this.token, idHotel).subscribe(
@@ -79,11 +101,13 @@ export class HotelesComponent implements OnInit {
       }
     )
   }
-
+// CRUD ADMIN
   editarHotel(){
     this._hotelesService.editarHotel(this.hotelModel).subscribe(
       response => {
         console.log(response);
+        this.obtenerHoteles();
+
         Swal.fire({
           icon: 'success',
           title: 'Hotel actualizado'
@@ -100,6 +124,8 @@ export class HotelesComponent implements OnInit {
     this._hotelesService.eliminarHotel(idHotel).subscribe(
       response => {
         console.log(response);
+        this.obtenerHoteles();
+
         Swal.fire({
           icon: 'success',
           title: 'Hotel Eliminado'
@@ -112,6 +138,66 @@ export class HotelesComponent implements OnInit {
 
     )
   }
+
+  ////////////////////////////////////////////////////////////////
+
+  // CRUD GERENTE
+
+  editarHotelGerente(){
+    this._hotelesService.editarHotelGerente(this.hotelModel).subscribe(
+      response => {
+        console.log(response);
+        this.obtenerHoteles();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Hotel actualizado'
+
+        })
+      },
+      error =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El gerente no posee los permisos del hotel seleccionado',
+        })
+        console.log(<any>error)
+      }
+
+    )
+  }
+
+
+  eliminarHotelGerente(idHotel){
+    this._hotelesService.eliminarHotelGerente(idHotel).subscribe(
+      response => {
+        console.log(response);
+        this.obtenerHoteles();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Hotel Eliminado'
+
+        })
+      },
+      error =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El gerente no posee los permisos del hotel seleccionado',
+        })
+        console.log(<any>error)
+      }
+
+    )
+  }
+
+////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 /*   editarHotel(){
     this.hotelModel = this.identidadH;

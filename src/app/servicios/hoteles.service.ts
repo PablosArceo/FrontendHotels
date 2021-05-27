@@ -28,16 +28,6 @@ export class HotelesService {
   }
 
 
-
-
-
-  /* obtenerHotelID(token,id:String): Observable<any>{
-    let headersToken = this.headersVariable.set('Authorization',token);
-
-    return this._http.get(this.url + '/obtenerHotelID/'+ id, {headers:headersToken})
-  }
- */
-
   obtenerHotelID(token,id:String): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization',token)
 
@@ -45,13 +35,17 @@ export class HotelesService {
   }
 
 
- /*  editarHotel(token, id:String): Observable<any>{
-    let headersToken = this.headersVariable.set('Authorization', token)
+  obtenerNombreHotel(hotel: Hotel): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', this.getToken())
+
+    return this._http.get(this.url + '/obtenerNombreHotel/'+ hotel.nombreHotel, {headers: headersToken})
+  }
 
 
-    return this._http.put(this.url + '/editarHotel/' + id, {headers: headersToken})
-  } */
 
+
+
+// CRUD ADMIN
   editarHotel(hotel: Hotel):Observable<any>{
     let params = JSON.stringify(hotel);
     let headersToken = this.headersVariable.set('Authorization', this.getToken())
@@ -67,7 +61,7 @@ export class HotelesService {
   }
 
 
-    public nuevoHotel(hotel: Hotel){
+  public nuevoHotel(hotel: Hotel){
 
     let params = JSON.stringify(hotel);
     let headersToken = this.headersVariable.set('Authorization',this.getToken())
@@ -75,6 +69,28 @@ export class HotelesService {
     return this._http.post(this.url+'/nuevoHotel',params,{headers: headersToken});
 
   }
+
+
+////////////////////////////////////////////////////////////////////////////
+
+
+
+// CRUD GERENTES
+  editarHotelGerente(hotel: Hotel):Observable<any>{
+    let params = JSON.stringify(hotel);
+    let headersToken = this.headersVariable.set('Authorization', this.getToken())
+
+    return this._http.put(this.url + '/editarHotelGerente/' + hotel._id, params, {headers: headersToken})
+  }
+
+
+  eliminarHotelGerente(id:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', this.getToken());
+
+    return this._http.delete(this.url + '/eliminarHotelGerente/' + id, {headers: headersToken})
+  }
+
+////////////////////////////////////////////////////////////////////////////
 
 
 

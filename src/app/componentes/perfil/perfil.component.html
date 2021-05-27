@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Perfil</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Arceo:400,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="perfil.component.scss">
@@ -23,7 +23,7 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="https://images.unsplash.com/photo-1490716792627-4e9601dfc808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" width="470" height="340" alt="login" class="login-card-img">
+            <img src="./assets/perfil.jpg" width="470" height="340" alt="login" class="login-card-img">
 
             <p class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small">
                <a  target="_blank" class="text-white">Tu Gestor de Hoteles</a> from SkyHotels
@@ -33,14 +33,18 @@
             <div class="card-body">
               <div class="brand-wrapper">
               </div>
+
               <p class="login-card-description">Usuario: {{usuarioModel.usuario}}</p>
-              <p  ></p>
+
+
               <form action="#!">
 
                 <section class="content">
 
+
                   <div class="box bg-2">
-                    <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" (click)="obtenerUsuarioId(idUsuario)"
+
+                    <button  class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"  (click)="obtenerUsuarioId(idUsuario)"
                     data-bs-toggle="modal" data-bs-target="#modalEditarUsuario"
                     data-text="Editar"><span>Editar</span>     </button>
 
@@ -59,6 +63,8 @@
                 data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button> -->
 
                 <div class="form-group">
+                  <tr *ngFor="let usua of usuarios"></tr>
+
                     <label for="inputNombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModel.nombre" placeholder="Editar nombre" disabled>
                   </div>

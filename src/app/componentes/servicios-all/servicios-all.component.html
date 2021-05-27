@@ -1,0 +1,168 @@
+
+
+<app-navbar></app-navbar>
+
+<div class="mask d-flex align-items-center h-80">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body p-0">
+
+
+
+              <table class="table table-striped mb-0">
+                <thead style="background-color: #002d72;">
+
+                  <tr>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="col">id Servicio</th>
+                    <th scope="col">Nombre Servicio</th>
+                    <th scope="col">Precio</th>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="col">id Hotel</th>
+                    <th *ngIf="identidadE.rol=='ROL_CLIENTE'" scope="col">Ver</th>
+                    <th *ngIf="identidadE.rol=='ROL_GERENTE'" scope="col">Ver</th>
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="col">Administrar</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let servicios of serviciosModelGet">
+                    <th *ngIf="identidadE.rol=='ROL_ADMIN'" scope="row">{{ servicios._id }}</th>
+                    <td>{{ servicios.nombreServicio }}</td>
+                    <td>{{ servicios.precio }}</td>
+                    <td *ngIf="identidadE.rol=='ROL_ADMIN'" >{{ servicios.idHotel }}</td>
+                    <td>
+                  <tr>
+                  <tr>
+                    <tr>
+
+
+                         <div class="box bg-1">
+                          <button *ngIf="identidadE.rol=='ROL_ADMIN'" class="button bi bi-pencil-square button--size-s  " (click)="obtenerServiciosID(servicios._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEditarServicio"
+                          data-text="Editar"><span></span>     </button>
+
+                          <button *ngIf="identidadE.rol=='ROL_ADMIN'" class="button bi bi-trash button--size-s" (click)="obtenerServiciosID(servicios._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalEliminarServicio"
+                          data-text="Eliminar"><span></span>     </button>
+
+
+                          <button  class="button bi bi-eye-fill button--size-s" (click)="obtenerServiciosID(servicios._id)"
+
+                          data-bs-toggle="modal" data-bs-target="#modalVerServicio"
+                          data-text="Ver"><span></span>     </button>
+
+
+
+
+                      </div>
+
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal Editar  -->
+
+     <div class="modal fade" id="modalEditarServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Servicio</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label">Nombre Servicio</label>
+                <input type="text" name="nombreServicio" id="nombreServicio" class="form-control"  name="nombreServicio" #nombreServicio="ngModel" [(ngModel)]="serviciosModel.nombreServicio"   placeholder="Editar Nombre Servicio" >
+              </div>
+
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label">Precio</label>
+                <input type="text" name="precio" id="precio" class="form-control"  name="precio" #precio="ngModel" [(ngModel)]="serviciosModel.precio"   placeholder="Editar Precio" >
+              </div>
+
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label">id Hotel</label>
+                <input type="text" name="id Hotel" id="id Hotel" class="form-control"  name="id Hotel" #id Hotel="ngModel" [(ngModel)]="serviciosModel.idHotel"   placeholder="Editar idHotel" >
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarServicio()">Save changes</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal Eliminar  -->
+ <div class="modal fade" id="modalEliminarServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Servicio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de que desea eliminar el servicio, {{ serviciosModel.nombreServicio }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+        (click)="eliminarServicio(serviciosModel._id)">Si, eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          <!-- Modal Ver Servicio -->
+
+           <div class="modal fade" id="modalVerServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ver Servicio</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="inputNombre" class="form-label">Nombre Servicio</label>
+                      <input type="text" name="nombreServicio" id="nombreServicio" class="form-control"  name="nombreServicio" #nombreServicio="ngModel" [(ngModel)]="serviciosModel.nombreServicio"    disabled>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="inputNombre" class="form-label">Precio</label>
+                      <input type="text" name="precio" id="precio" class="form-control"  name="precio" #precio="ngModel" [(ngModel)]="serviciosModel.precio"    disabled>
+                    </div>
+
+                    <div class="mb-3"  *ngIf="identidadE.rol=='ROL_ADMIN'">
+                      <label for="inputNombre" class="form-label">id Hotel</label>
+                      <input type="text" name="id Hotel" id="id Hotel" class="form-control"  name="id Hotel" #id Hotel="ngModel" [(ngModel)]="serviciosModel.idHotel"    disabled>
+                    </div>
+
+
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
